@@ -17,5 +17,10 @@ This is the frontend of SportSee. It is a web application that allows users to v
 3. Run `yarn dev` to start the development server
 4. Open `localhost:8080` in your browser
 
+## Deployment
+
+To deploy the application, run `yarn build`. This will create the files that need to be served by a web server.
+
+
 
 
