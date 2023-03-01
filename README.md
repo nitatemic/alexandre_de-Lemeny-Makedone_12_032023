@@ -1,5 +1,4 @@
 # Frontend of SportSee
-# ====================
 
 This is the frontend of SportSee. It is a web application that allows users to view their data.
 
