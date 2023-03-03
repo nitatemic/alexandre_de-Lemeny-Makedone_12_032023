@@ -1,6 +1,10 @@
 import React from 'react';
 import SportSeeLogo from '../assets/img/SportSee-logo.svg';
 
+/**
+ * It returns the navbar of the application.
+ * @returns A div (The Navbar).
+ */
 export default function Navbar() {
   return (
     <div className="navbar">
