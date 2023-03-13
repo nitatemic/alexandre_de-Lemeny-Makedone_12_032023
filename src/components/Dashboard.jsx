@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import getUser from '../requests/user.js';
-import DailyActivity from './DailyActivity.jsx';
+import getUser from '../requests/user';
+import DailyActivity from './DailyActivity';
 
 export default function Dashboard() {
   const [data, setData] = useState('');
