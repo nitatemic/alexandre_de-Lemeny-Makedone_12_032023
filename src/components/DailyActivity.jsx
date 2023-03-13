@@ -45,8 +45,8 @@ export default function DailyActivity(userID) {
           }}
         >
           <CartesianGrid strokeDasharray="3" vertical={false} />
-          <XAxis dataKey="Jour" />
-          <YAxis orientation="right" allowDecimals={false} domain={['dataMin - 3', 'dataMax + 2']} dataKey="Poids" yAxisId="YAxisPoids" />
+          <XAxis dataKey="Jour" tickLine={false} tickMargin={10} />
+          <YAxis orientation="right" allowDecimals={false} domain={['dataMin - 3', 'dataMax + 2']} dataKey="Poids" yAxisId="YAxisPoids" tickLine={false} axisLine={false} tickMargin={10}/>
           <YAxis orientation="left" allowDecimals={false} domain={['dataMin - 50', 'dataMax + 30']} dataKey="Calories" yAxisId="YAxisCalories" hide />
           <Tooltip />
           <Legend align="right" verticalAlign="top" iconSize={8} wrapperStyle={{ paddingBottom: 30 }} />
