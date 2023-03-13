@@ -6,9 +6,7 @@
 const API = 'http://localhost:3000/';
 
 export default async function getDailyActivity(userID) {
-  console.log(userID)
   const response = await fetch(`${API}user/${userID}/activity`);
   const data = await response.json();
-  console.log(data);
   return data.data;
 }

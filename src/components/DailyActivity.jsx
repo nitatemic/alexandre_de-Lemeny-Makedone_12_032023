@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import {
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ZAxis,
 } from 'recharts';
 import getDailyActivity from '../requests/activity';
 
@@ -44,13 +44,14 @@ export default function DailyActivity(userID) {
             bottom: 0,
           }}
         >
-          <CartesianGrid strokeDasharray="3 3" />
+          <CartesianGrid strokeDasharray="3" vertical={false} />
           <XAxis dataKey="Jour" />
-          <YAxis orientation="right" domain={[0, 'auto']} />
+          <YAxis orientation="right" allowDecimals={false} domain={['dataMin - 3', 'dataMax + 2']} dataKey="Poids" yAxisId="YAxisPoids" />
+          <YAxis orientation="left" allowDecimals={false} domain={['dataMin - 50', 'dataMax + 30']} dataKey="Calories" yAxisId="YAxisCalories" hide={true} />
           <Tooltip />
-          <Legend align="right" verticalAlign="top" iconSize={20} wrapperStyle={{ paddingBottom: 30 }} />
-          <Bar dataKey="Poids" name="Poids (kg)" legendType="circle" unit="kg" fill="#282D30" />
-          <Bar dataKey="Calories" name="Calories brûlées (kCal)" legendType="circle" unit="kCal" fill="#E60000" />
+          <Legend align="right" verticalAlign="top" iconSize={8} wrapperStyle={{ paddingBottom: 30 }} />
+          <Bar dataKey="Poids" name="Poids (kg)" legendType="circle" unit="kg" fill="#282D30" yAxisId="YAxisPoids" />
+          <Bar dataKey="Calories" name="Calories brûlées (kCal)" legendType="circle" unit="kCal" fill="#E60000" yAxisId="YAxisCalories" />
         </BarChart>
       </ResponsiveContainer>
 
