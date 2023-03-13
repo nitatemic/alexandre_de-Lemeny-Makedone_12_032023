@@ -1,0 +1,16 @@
+.dashboard {
+  margin: 2rem 0 2rem 5rem;
+  &-greeting {
+
+    font-family: Roboto, sans-serif;
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0;
+    text-align: left;
+
+    &-name {
+        color: red;
+      }
+  }
+}

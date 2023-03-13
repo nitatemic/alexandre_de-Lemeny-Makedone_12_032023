@@ -1,7 +1,7 @@
-import {defineConfig} from 'vite';
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import mkcert from 'vite-plugin-mkcert';
-import autoprefixer from "autoprefixer";;
+import autoprefixer from 'autoprefixer';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -9,13 +9,13 @@ export default defineConfig({
   css: {
     postcss: {
       plugins: [
-        autoprefixer
+        autoprefixer,
       ],
-    }
+    },
   },
   server: {
     port: 8080,
     hot: true,
-    https: true
-  }
-})
+    https: false,
+  },
+});
