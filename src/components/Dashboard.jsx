@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import getUser from '../requests/user';
 import DailyActivity from './DailyActivity';
+import AverageSession from './AverageSession';
+import RadarActivity from './RadarActivity';
 
 export default function Dashboard() {
   const [data, setData] = useState('');
@@ -22,7 +24,14 @@ export default function Dashboard() {
           {data.userInfos ? data.userInfos.firstName : '...'}
         </span>
       </h1>
-      <DailyActivity userID={userID}/>
+      <div className="dashboard-line-1">
+        <DailyActivity userID={userID} />
+      </div>
+      <div className="dashboard-line-2">
+        <AverageSession userID={userID} />
+        <RadarActivity userID={userID} />
+      </div>
+
     </div>
   );
 }

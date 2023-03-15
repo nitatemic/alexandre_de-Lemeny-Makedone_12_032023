@@ -4,7 +4,7 @@
  * @returns The response from the fetch request.
  */
 
-const API = 'http://localhost:3000/';
+import { API } from './variables';
 
 export default async function getUser(id) {
   const response = await fetch(`${API}user/${id}`);

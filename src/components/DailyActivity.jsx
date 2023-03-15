@@ -1,17 +1,25 @@
 import React, { useEffect, useState } from 'react';
 
 import {
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ZAxis,
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Legend,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
 } from 'recharts';
+import PropTypes from 'prop-types';
 import getDailyActivity from '../requests/activity';
 
-export default function DailyActivity(userID) {
+export default function DailyActivity(props) {
+  const { userID } = props;
   const [sportData, setSportData] = useState([]);
 
   useEffect(() => {
-    const id = userID.userID;
     async function fetchData() {
-      const result = await getDailyActivity(id);
+      const result = await getDailyActivity(userID);
 
       const table = [];
       for (let i = 0; i < result.sessions.length; i += 1) {
@@ -24,7 +32,7 @@ export default function DailyActivity(userID) {
       setSportData(table);
     }
     fetchData();
-  }, [userID.userID]);
+  }, [props, userID]);
 
   if (!sportData || !userID) {
     return <div>Loading...</div>;
@@ -46,7 +54,7 @@ export default function DailyActivity(userID) {
         >
           <CartesianGrid strokeDasharray="3" vertical={false} />
           <XAxis dataKey="Jour" tickLine={false} tickMargin={10} />
-          <YAxis orientation="right" allowDecimals={false} domain={['dataMin - 3', 'dataMax + 2']} dataKey="Poids" yAxisId="YAxisPoids" tickLine={false} axisLine={false} tickMargin={10}/>
+          <YAxis orientation="right" allowDecimals={false} domain={['dataMin - 3', 'dataMax + 2']} dataKey="Poids" yAxisId="YAxisPoids" tickLine={false} axisLine={false} tickMargin={10} />
           <YAxis orientation="left" allowDecimals={false} domain={['dataMin - 50', 'dataMax + 30']} dataKey="Calories" yAxisId="YAxisCalories" hide />
           <Tooltip />
           <Legend align="right" verticalAlign="top" iconSize={8} wrapperStyle={{ paddingBottom: 30 }} />
@@ -54,7 +62,10 @@ export default function DailyActivity(userID) {
           <Bar dataKey="Calories" name="Calories brûlées (kCal)" legendType="circle" unit="kCal" fill="#E60000" yAxisId="YAxisCalories" radius={[10, 10, 0, 0]} barSize={7} />
         </BarChart>
       </ResponsiveContainer>
-
     </div>
   );
 }
+
+DailyActivity.propTypes = {
+  userID: PropTypes.number.isRequired,
+};
