@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
 import {
+  LineChart,
+  Line,
   XAxis,
   YAxis,
+  CartesianGrid,
   Tooltip,
-  ResponsiveContainer,
-  Line,
-  LineChart,
+  Legend, ResponsiveContainer
 } from 'recharts';
 import getAverageSessions from '../requests/averageSessions';
 import PropTypes from 'prop-types';
@@ -56,11 +57,14 @@ export default function AverageSession(props) {
     return <div>Loading...</div>;
   }
 
+
   return (
     <div className="averageSession">
       <h2 className="averageSession-title">Durée moyenne des sessions</h2>
-      <ResponsiveContainer width="33%">
-        <LineChart data={sportData}>
+      <ResponsiveContainer width="100%" height={300}>
+        <LineChart data={sportData}
+                   width={500}
+                   height={300} >
           <XAxis dataKey="Jour" />
           <YAxis hide />
           <Tooltip />
