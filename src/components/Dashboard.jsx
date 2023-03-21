@@ -3,6 +3,8 @@ import getUser from '../requests/user';
 import DailyActivity from './DailyActivity';
 import AverageSession from './AverageSession';
 import RadarActivity from './RadarActivity';
+import RadialGoal from './RadialGoal';
+import IndividualData from './IndividualData';
 
 export default function Dashboard() {
   const [data, setData] = useState('');
@@ -24,14 +26,19 @@ export default function Dashboard() {
           {data.userInfos ? data.userInfos.firstName : '...'}
         </span>
       </h1>
-      <div className="dashboard-line-1">
-        <DailyActivity userID={userID} />
+      <div className="dashboard-container-left">
+        <div className="dashboard-line-1">
+          <DailyActivity userID={userID} />
+        </div>
+        <div className="dashboard-line-2">
+          <AverageSession userID={userID} />
+          <RadarActivity userID={userID} />
+          <RadialGoal userID={userID} />
+        </div>
       </div>
-      <div className="dashboard-line-2">
-        <AverageSession userID={userID} />
-        <RadarActivity userID={userID} />
+      <div className="dashboard-container-right">
+        <IndividualData type="calorieCount" value="1000" />
       </div>
-
     </div>
   );
 }

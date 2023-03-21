@@ -11,3 +11,10 @@ export default async function getUser(id) {
   const data = await response.json();
   return data.data;
 }
+
+export async function getUserGoalCompletion(id) {
+  const response = await fetch(`${API}user/${id}`);
+  const data = await response.json();
+  const score = data.data;
+  return score.score;
+}

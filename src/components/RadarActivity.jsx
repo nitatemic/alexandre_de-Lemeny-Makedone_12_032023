@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
 import {
-  ResponsiveContainer,
   RadarChart,
   PolarGrid,
   PolarAngleAxis,
   PolarRadiusAxis,
   Radar,
-  Legend,
 } from 'recharts';
 import PropTypes from 'prop-types';
 import GetPerformance from '../requests/performance';
@@ -36,28 +34,27 @@ export default function RadarActivity(props) {
   if (!sportData || !userID) {
     return <div>Loading...</div>;
   }
-  console.log(sportData)
   return (
     <div className="RadarActivity">
-        <RadarChart
-          cx={300}
-          cy={250}
-          outerRadius={150}
-          width={500}
-          height={500}
-          data={sportData}
-        >
-          <PolarGrid />
-          <PolarAngleAxis dataKey="Kind" />
-          <PolarRadiusAxis />
-          <Radar
-            name="Mike"
-            dataKey="A"
-            stroke="#8884d8"
-            fill="#8884d8"
-            fillOpacity={0.6}
-          />
-        </RadarChart>
+      <RadarChart
+        cx={300}
+        cy={250}
+        outerRadius={150}
+        width={500}
+        height={500}
+        data={sportData}
+      >
+        <PolarGrid />
+        <PolarAngleAxis dataKey="Kind" />
+        <PolarRadiusAxis />
+        <Radar
+          name="Mike"
+          dataKey="A"
+          stroke="#8884d8"
+          fill="#8884d8"
+          fillOpacity={0.6}
+        />
+      </RadarChart>
     </div>
   );
 }
