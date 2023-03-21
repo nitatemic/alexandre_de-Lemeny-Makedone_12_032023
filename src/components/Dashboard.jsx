@@ -37,7 +37,9 @@ export default function Dashboard() {
         </div>
       </div>
       <div className="dashboard-container-right">
-        <IndividualData type="calorieCount" value="1000" />
+        {/* For each keyData, we create a new IndividualData component */}
+        {data.keyData ? Object.keys(data.keyData).map((key) => (
+          <IndividualData type={key} value={data.keyData[key]} />)) : null}
       </div>
     </div>
   );
