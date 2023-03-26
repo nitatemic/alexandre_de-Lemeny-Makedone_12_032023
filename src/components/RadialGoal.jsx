@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
-import { RadialBarChart, RadialBar } from 'recharts';
+import {
+  PieChart, Pie, Sector, Cell,
+} from 'recharts';
 import { getUserGoalCompletion } from '../requests/user';
 
 export default function RadialGoal(props) {
@@ -11,9 +13,19 @@ export default function RadialGoal(props) {
   useEffect(() => {
     async function fetchData() {
       const result = await getUserGoalCompletion(userID);
-      console.log(result * 100);
+      const goalValue = result * 100;
+      const RemainingValue = 100 - goalValue;
 
-      const table = [{ value: result * 100 }];
+      const table = [
+        {
+          name: 'Goal',
+          value: goalValue,
+        },
+        {
+          name: 'Remaining',
+          value: RemainingValue,
+        },
+      ];
       setSportData(table);
     }
     fetchData();
@@ -22,27 +34,26 @@ export default function RadialGoal(props) {
   if (!sportData || !userID) {
     return <div>Loading...</div>;
   }
-  console.log(sportData);
+
+  const COLORS = ['red', 'white'];
+
   return (
     <div className="RadialGoal">
-      <h1>RadialGoal</h1>
-      <RadialBarChart
-        width={500}
-        height={300}
-        innerRadius={120}
-        outerRadius={120}
-        barSize={10}
-        data={sportData}
-        startAngle={90}
-        endAngle={-270}
-      >
-        <RadialBar
-          minAngle={0}
-          background
-          clockWise
+      <PieChart width={400} height={400}>
+        <Pie
+          data={sportData}
+          cx={120}
+          cy={200}
+          innerRadius={60}
+          outerRadius={80}
+          paddingAngle={5}
           dataKey="value"
-        />
-      </RadialBarChart>
+        >
+          {sportData.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+          ))}
+        </Pie>
+      </PieChart>
     </div>
   );
 }

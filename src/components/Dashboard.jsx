@@ -26,20 +26,22 @@ export default function Dashboard() {
           {data.userInfos ? data.userInfos.firstName : '...'}
         </span>
       </h1>
-      <div className="dashboard-container-left">
-        <div className="dashboard-line-1">
-          <DailyActivity userID={userID} />
+      <div className="dashboard-container">
+        <div className="dashboard-container-left">
+          <div className="dashboard-line-1">
+            <DailyActivity userID={userID} />
+          </div>
+          <div className="dashboard-line-2">
+            <AverageSession userID={userID} />
+            <RadarActivity userID={userID} />
+            <RadialGoal userID={userID} />
+          </div>
         </div>
-        <div className="dashboard-line-2">
-          <AverageSession userID={userID} />
-          <RadarActivity userID={userID} />
-          <RadialGoal userID={userID} />
+        <div className="dashboard-container-right">
+          {/* For each keyData, we create a new IndividualData component */}
+          {data.keyData ? Object.keys(data.keyData).map((key) => (
+            <IndividualData type={key} value={data.keyData[key]} />)) : null}
         </div>
-      </div>
-      <div className="dashboard-container-right">
-        {/* For each keyData, we create a new IndividualData component */}
-        {data.keyData ? Object.keys(data.keyData).map((key) => (
-          <IndividualData type={key} value={data.keyData[key]} />)) : null}
       </div>
     </div>
   );
