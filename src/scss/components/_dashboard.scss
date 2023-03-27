@@ -11,7 +11,8 @@
     &-left {
       display: flex;
       flex-direction: column;
-      width: 60%
+      width: 60%;
+      height: 100%;
     }
 
     &-right {
@@ -45,10 +46,12 @@
 
   &-line {
     &-1 {
-
+        height: 50%;
+      margin-bottom : 3rem;
     }
 
     &-2 {
+      height: 50%;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
