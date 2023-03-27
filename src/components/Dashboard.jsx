@@ -26,6 +26,7 @@ export default function Dashboard() {
           {data.userInfos ? data.userInfos.firstName : '...'}
         </span>
       </h1>
+      <h2 className="dashboard-greeting-message">Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
       <div className="dashboard-container">
         <div className="dashboard-container-left">
           <div className="dashboard-line-1">

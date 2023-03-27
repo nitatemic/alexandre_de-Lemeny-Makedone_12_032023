@@ -4,8 +4,7 @@ import {
   RadarChart,
   PolarGrid,
   PolarAngleAxis,
-  PolarRadiusAxis,
-  Radar,
+  Radar, ResponsiveContainer,
 } from 'recharts';
 import PropTypes from 'prop-types';
 import GetPerformance from '../requests/performance';
@@ -35,26 +34,27 @@ export default function RadarActivity(props) {
     return <div>Loading...</div>;
   }
   return (
-    <div className="RadarActivity">
-      <RadarChart
-        cx={300}
-        cy={250}
-        outerRadius={150}
-        width={500}
-        height={500}
-        data={sportData}
-      >
-        <PolarGrid />
-        <PolarAngleAxis dataKey="Kind" />
-        <PolarRadiusAxis />
-        <Radar
-          name="Mike"
-          dataKey="A"
-          stroke="#8884d8"
-          fill="#8884d8"
-          fillOpacity={0.6}
-        />
-      </RadarChart>
+    <div className="radarActivity">
+      <ResponsiveContainer width="100%" height="100%">
+        <RadarChart
+          cx={140}
+          cy={140}
+          outerRadius={100}
+          width={280}
+          height={280}
+          data={sportData}
+        >
+          <PolarGrid radialLines={false} />
+          <PolarAngleAxis dataKey="Kind" tick={{ fill: 'white' }} />
+          <Radar
+            name="Mike"
+            dataKey="A"
+            stroke="#FF0101B2"
+            fill="#FF0101B2"
+            fillOpacity={0.7}
+          />
+        </RadarChart>
+      </ResponsiveContainer>
     </div>
   );
 }

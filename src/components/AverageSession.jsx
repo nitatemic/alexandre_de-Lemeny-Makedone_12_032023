@@ -7,10 +7,10 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend, ResponsiveContainer
+  Legend, ResponsiveContainer,
 } from 'recharts';
-import getAverageSessions from '../requests/averageSessions';
 import PropTypes from 'prop-types';
+import getAverageSessions from '../requests/averageSessions';
 
 export default function AverageSession(props) {
   const { userID } = props;
@@ -57,20 +57,30 @@ export default function AverageSession(props) {
     return <div>Loading...</div>;
   }
 
-
   return (
     <div className="averageSession">
-      <h2 className="averageSession-title">Durée moyenne des sessions</h2>
-      <ResponsiveContainer width="100%" height={300}>
-        <LineChart data={sportData}
-                   width={500}
-                   height={300} >
-          <XAxis dataKey="Jour" />
-          <YAxis hide />
-          <Tooltip />
-          <Line type="monotone" dataKey="Duree" stroke="black" />
-        </LineChart>
-      </ResponsiveContainer>
+      <div className="averageSession-container">
+        <h2 className="averageSession-title">Durée moyenne des sessions</h2>
+        <div className="averageSession-graph">
+          <ResponsiveContainer width="100%" height="95%">
+            <LineChart
+              data={sportData}
+              width="33%"
+              height="100%"
+            >
+              <XAxis
+                dataKey="Jour"
+                axisLine={false}
+                tickLine={false}
+                tick={{ fill: 'white', className: 'weekLabel' }}
+              />
+              <YAxis hide />
+              <Tooltip />
+              <Line type="monotone" dataKey="Duree" dot={false} stroke="white" />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
     </div>
   );
 }

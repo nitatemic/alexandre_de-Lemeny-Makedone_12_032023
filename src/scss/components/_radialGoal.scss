@@ -1,0 +1,14 @@
+.radialGoal {
+  width: 33%; /* par exemple */
+  height: 0;
+  padding-bottom: 33%; /* même valeur que la largeur en pourcentage */
+  position: relative;
+
+  & > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

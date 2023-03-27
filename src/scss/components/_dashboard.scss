@@ -1,29 +1,27 @@
 .dashboard {
   margin: 2rem 0 2rem 5rem;
-  width: 100%;
 
-  &-container{
+  &-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
+    width: calc(100vw - 15rem);
 
     &-left {
       display: flex;
       flex-direction: column;
-      flex-basis: 60%;
-      max-width: 60%;
-      margin : 0 0 0 0;
+      width: 60%
     }
 
     &-right {
-      flex-basis: 30%;
-      max-width: 30%;
-      margin : 0;
+      display: flex;
+      flex-direction: column;
+      width: 20%;
     }
   }
-  &-greeting {
 
+  &-greeting {
     font-family: Roboto, sans-serif;
     font-size: 48px;
     font-weight: 500;
@@ -32,8 +30,17 @@
     text-align: left;
 
     &-name {
-        color: red;
-      }
+      color: red;
+    }
+
+    &-message {
+      font-family: Roboto, sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0;
+      text-align: left;
+    }
   }
 
   &-line {
@@ -44,8 +51,7 @@
     &-2 {
       display: flex;
       flex-direction: row;
-      flex-basis: 60%;
-      max-width: 60%;
+      justify-content: space-between;
     }
   }
 }
