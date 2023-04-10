@@ -1,2 +1,5 @@
-/* Export  of the API URL */
-export const API = 'http://localhost:3000/';
+export let API = './mocks/';
+
+if (process.env.NODE_ENV === 'production') {
+  API = 'http://localhost:3000/';
+}

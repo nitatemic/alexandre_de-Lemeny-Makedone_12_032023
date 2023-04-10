@@ -6,7 +6,12 @@ import { API } from './variables';
  * @returns An array of objects.
  */
 export default async function getDailyActivity(userID) {
-  const response = await fetch(`${API}user/${userID}/activity`);
+  let response;
+  if (process.env.NODE_ENV === 'production') {
+    response = await fetch(`${API}user/${userID}/activity`);
+  } else {
+    response = await fetch(`${API}user/${userID}/activity.json`);
+  }
   const data = await response.json();
   return data.data;
 }

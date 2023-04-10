@@ -8,7 +8,7 @@ import IndividualData from './IndividualData';
 
 export default function Dashboard() {
   const [data, setData] = useState('');
-  const userID = 18;
+  const userID = 12;
   useEffect(() => {
     async function fetchData() {
       const result = await getUser(userID);

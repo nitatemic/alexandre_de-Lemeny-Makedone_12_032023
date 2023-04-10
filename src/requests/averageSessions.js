@@ -6,7 +6,12 @@ import { API } from './variables';
  * @returns The average number of sessions per day for the user.
  */
 export default async function getAverageSessions(userID) {
-  const response = await fetch(`${API}user/${userID}/average-sessions`);
+  let response;
+  if (process.env.NODE_ENV === 'production') {
+    response = await fetch(`${API}user/${userID}/average-sessions`);
+  } else {
+    response = await fetch(`${API}user/${userID}/average-sessions.json`);
+  }
   const data = await response.json();
   return data.data;
 }

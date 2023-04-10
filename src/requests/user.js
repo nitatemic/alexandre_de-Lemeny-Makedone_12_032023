@@ -7,13 +7,23 @@
 import { API } from './variables';
 
 export default async function getUser(id) {
-  const response = await fetch(`${API}user/${id}`);
+  let response;
+  if (process.env.NODE_ENV === 'production') {
+    response = await fetch(`${API}user/${id}`);
+  } else {
+    response = await fetch(`${API}user/${id}.json`);
+  }
   const data = await response.json();
   return data.data;
 }
 
 export async function getUserGoalCompletion(id) {
-  const response = await fetch(`${API}user/${id}`);
+  let response;
+  if (process.env.NODE_ENV === 'production') {
+    response = await fetch(`${API}user/${id}`);
+  } else {
+    response = await fetch(`${API}user/${id}.json`);
+  }
   const data = await response.json();
   const score = data.data;
   return score.score;

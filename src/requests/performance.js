@@ -6,7 +6,12 @@ import { API } from './variables';
  * @returns An array of objects.
  */
 export default async function getPerformance(id) {
-  const response = await fetch(`${API}user/${id}/performance/`);
+  let response;
+  if (process.env.NODE_ENV === 'production') {
+    response = await fetch(`${API}user/${id}/performance`);
+  } else {
+    response = await fetch(`${API}user/${id}/performance.json`);
+  }
   const data = await response.json();
   return data.data;
 }
