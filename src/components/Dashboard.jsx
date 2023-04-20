@@ -22,17 +22,21 @@ export default function Dashboard() {
   const [GoalData, setGoalData] = useState([]);
   const userID = 12;
 
-
   useEffect(() => {
     async function fetchData() {
+      /* Get data for the dashboard */
       const result = await getUser(userID);
       setData(result);
+      /* Get data for DailyActivity component */
       const actiData = await getDailyActivity(userID);
       setActivityData(actiData);
+      /* Get data for AverageSession component */
       const avgData = await getAverageSessions(userID);
       setAverageData(avgData);
+      /* Get data for RadarActivity component */
       const perfData = await getPerformance(userID);
       setPerformanceData(perfData);
+      /* Get data for RadialGoal component */
       const goalData = await getUserGoalCompletion(userID);
       setGoalData(goalData);
     }
