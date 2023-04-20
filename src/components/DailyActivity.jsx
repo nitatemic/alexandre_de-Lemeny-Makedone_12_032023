@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import {
   Bar,
@@ -11,30 +11,11 @@ import {
   YAxis,
 } from 'recharts';
 import PropTypes from 'prop-types';
-import getDailyActivity from '../requests/activity';
 
 export default function DailyActivity(props) {
-  const { userID } = props;
-  const [sportData, setSportData] = useState([]);
+  const { sportData } = props;
 
-  useEffect(() => {
-    async function fetchData() {
-      const result = await getDailyActivity(userID);
-
-      const table = [];
-      for (let i = 0; i < result.sessions.length; i += 1) {
-        table.push({
-          Jour: new Date(result.sessions[i].day).getDate(),
-          Poids: result.sessions[i].kilogram,
-          Calories: (result.sessions[i].calories),
-        });
-      }
-      setSportData(table);
-    }
-    fetchData();
-  }, [props, userID]);
-
-  if (!sportData || !userID) {
+  if (!sportData) {
     return <div>Loading...</div>;
   }
 
@@ -71,5 +52,5 @@ export default function DailyActivity(props) {
 }
 
 DailyActivity.propTypes = {
-  userID: PropTypes.number.isRequired,
+  sportData: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

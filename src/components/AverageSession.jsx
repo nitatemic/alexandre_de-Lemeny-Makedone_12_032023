@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import {
   LineChart,
@@ -9,50 +9,11 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import PropTypes from 'prop-types';
-import getAverageSessions from '../requests/averageSessions';
 
 export default function AverageSession(props) {
-  const { userID } = props;
-  const [sportData, setSportData] = useState([]);
+  const { sportData } = props;
 
-  function getDay(date) {
-    switch (date) {
-      case 1:
-        return 'L';
-      case 2:
-        return 'M';
-      case 3:
-        return 'M';
-      case 4:
-        return 'J';
-      case 5:
-        return 'V';
-      case 6:
-        return 'S';
-      case 7:
-        return 'D';
-      default:
-        return 'Erreur';
-    }
-  }
-
-  useEffect(() => {
-    async function fetchData() {
-      const result = await getAverageSessions(userID);
-
-      const table = [];
-      for (let i = 0; i < result.sessions.length; i += 1) {
-        table.push({
-          Jour: getDay(result.sessions[i].day),
-          Duree: (result.sessions[i].sessionLength),
-        });
-      }
-      setSportData(table);
-    }
-    fetchData();
-  }, [userID]);
-
-  if (!sportData || !userID) {
+  if (!sportData) {
     return <div>Loading...</div>;
   }
 
@@ -85,5 +46,5 @@ export default function AverageSession(props) {
 }
 
 AverageSession.propTypes = {
-  userID: PropTypes.number.isRequired,
+  sportData: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

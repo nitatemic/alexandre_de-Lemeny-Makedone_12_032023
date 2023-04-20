@@ -4,34 +4,11 @@ import PropTypes from 'prop-types';
 import {
   PieChart, Pie, Cell, ResponsiveContainer,
 } from 'recharts';
-import { getUserGoalCompletion } from '../requests/user';
 
 export default function RadialGoal(props) {
-  const { userID } = props;
-  const [sportData, setSportData] = useState([]);
+  const { sportData } = props;
 
-  useEffect(() => {
-    async function fetchData() {
-      const result = await getUserGoalCompletion(userID);
-      const goalValue = result * 100;
-      const RemainingValue = 100 - goalValue;
-
-      const table = [
-        {
-          name: 'Goal',
-          value: goalValue,
-        },
-        {
-          name: 'Remaining',
-          value: RemainingValue,
-        },
-      ];
-      setSportData(table);
-    }
-    fetchData();
-  }, [userID]);
-
-  if (!sportData || !userID) {
+  if (!sportData) {
     return <div>Loading...</div>;
   }
 
@@ -61,5 +38,5 @@ export default function RadialGoal(props) {
 }
 
 RadialGoal.propTypes = {
-  userID: PropTypes.number.isRequired,
+  sportData: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

@@ -1,4 +1,5 @@
-import { API } from './variables';
+import { API } from './variables.js';
+import requests from '../requests/requests.js';
 
 /**
  * This is an asynchronous function that retrieves user data from an API endpoint,
@@ -24,14 +25,24 @@ export default async function getUser(id) {
  * @returns the `score` property of the `data` object obtained from the API response for the user
  * with the specified `id`.
  */
-export async function getUserGoalCompletion(id) {
-  let response;
-  if (process.env.NODE_ENV === 'production') {
-    response = await fetch(`${API}user/${id}`);
-  } else {
-    response = await fetch(`${API}user/${id}.json`);
-  }
+export async function getUserGoalCompletion(userID) {
+ const response = await requests(userID, 'user');
   const data = await response.json();
   const score = data.data;
-  return score.score;
+  const result = score.score;
+
+  const goalValue = result * 100;
+  const RemainingValue = 100 - goalValue;
+
+  const table = [
+    {
+      name: 'Goal',
+      value: goalValue,
+    },
+    {
+      name: 'Remaining',
+      value: RemainingValue,
+    },
+  ];
+  return table;
 }

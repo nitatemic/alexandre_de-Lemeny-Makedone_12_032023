@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import {
   RadarChart,
@@ -7,30 +7,11 @@ import {
   Radar, ResponsiveContainer,
 } from 'recharts';
 import PropTypes from 'prop-types';
-import GetPerformance from '../requests/performance';
 
 export default function RadarActivity(props) {
-  const { userID } = props;
-  const [sportData, setSportData] = useState([]);
+  const { sportData } = props;
 
-  useEffect(() => {
-    async function fetchData() {
-      const result = await GetPerformance(userID);
-
-      const table = [];
-      Object.keys(result.kind).forEach((type, index) => {
-        table.push({
-          Kind: result.kind[type],
-          A: ((result.data[index]).value),
-        });
-      });
-      setSportData(table);
-    }
-
-    fetchData();
-  }, [userID]);
-
-  if (!sportData || !userID) {
+  if (!sportData) {
     return <div>Loading...</div>;
   }
   return (
@@ -60,5 +41,5 @@ export default function RadarActivity(props) {
 }
 
 RadarActivity.propTypes = {
-  userID: PropTypes.number.isRequired,
+  sportData: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
