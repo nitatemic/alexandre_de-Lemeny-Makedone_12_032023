@@ -16,6 +16,5 @@ export default async function getPerformance(userID) {
       A: ((result.data[index]).value),
     });
   });
-  console.log(table)
   return table;
 }

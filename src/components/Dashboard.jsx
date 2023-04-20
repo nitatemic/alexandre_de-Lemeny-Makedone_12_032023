@@ -67,8 +67,8 @@ export default function Dashboard() {
         <div className="dashboard-container-right">
           {/* For each keyData, we create a new IndividualData component */}
           {data.keyData ? Object.keys(data.keyData)
-            .map((key) => (
-              <IndividualData type={key} value={data.keyData[key]} />)) : null}
+            .map((key, index) => (
+              <IndividualData type={key} value={data.keyData[key]} key={`IndividualData-${index}`} />)) : null}
         </div>
       </div>
     </div>
