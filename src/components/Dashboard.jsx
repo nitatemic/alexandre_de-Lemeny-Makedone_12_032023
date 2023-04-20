@@ -6,6 +6,11 @@ import RadarActivity from './RadarActivity';
 import RadialGoal from './RadialGoal';
 import IndividualData from './IndividualData';
 
+/**
+ * It is used to display the dashboard page.
+ * The dashboard page is the homepage of the app.
+ * It is made of different components, each displaying a different part of the dashboard.
+ */
 export default function Dashboard() {
   const [data, setData] = useState('');
   const userID = 12;

@@ -5,9 +5,8 @@ import {
   Line,
   XAxis,
   YAxis,
-  CartesianGrid,
   Tooltip,
-  Legend, ResponsiveContainer,
+  ResponsiveContainer,
 } from 'recharts';
 import PropTypes from 'prop-types';
 import getAverageSessions from '../requests/averageSessions';
