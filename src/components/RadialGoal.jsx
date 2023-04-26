@@ -13,14 +13,18 @@ export default function RadialGoal(props) {
   }
 
   const COLORS = ['red', 'white'];
+  console.log(sportData)
 
   return (
     <div className="radialGoal">
-      <ResponsiveContainer width="80%" height="80%">
-        <PieChart>
+      <ResponsiveContainer width="100%" height="100%">
+        <PieChart
+          width={280}
+          height={280}
+        >
           <Pie
             data={sportData}
-            cx={120}
+            cx={200}
             cy={200}
             innerRadius={60}
             outerRadius={80}

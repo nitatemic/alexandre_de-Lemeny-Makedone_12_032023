@@ -23,8 +23,7 @@ export async function getUserGoalCompletion(userID) {
   const response = await requests(userID, 'user');
   const data = await response.json();
   const score = data.data;
-  const result = score.score;
-
+  const result = score.todayScore;
   const goalValue = result * 100;
   const RemainingValue = 100 - goalValue;
 
