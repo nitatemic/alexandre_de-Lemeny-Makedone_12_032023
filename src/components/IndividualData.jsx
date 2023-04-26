@@ -69,7 +69,10 @@ export default function IndividualData(props) {
           <img className="individualData-content-logo-img" src={icon} alt={category} />
         </div>
         <div className="individualData-content-data-container">
-          <p className="individualData-content-data-value">{value}{type === 'calorieCount' ? 'kCal' : 'g'}</p>
+          <p className="individualData-content-data-value">
+            {value}
+            {type === 'calorieCount' ? 'kCal' : 'g'}
+          </p>
           <p className="individualData-content-data-type">{category}</p>
         </div>
       </div>
