@@ -1,4 +1,4 @@
-import { API } from '../services/variables.js';
+import { API } from '../services/variables';
 
 export default function requests(userID, type) {
   let URL;
