@@ -18,10 +18,7 @@ export default function RadialGoal(props) {
   return (
     <div className="radialGoal">
       <ResponsiveContainer width="100%" height="100%">
-        <PieChart
-          width={280}
-          height={280}
-        >
+        <PieChart>
           <Pie
             data={sportData}
             cx={200}
