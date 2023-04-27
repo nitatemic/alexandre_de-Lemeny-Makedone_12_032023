@@ -26,5 +26,5 @@ export default function requests(userID, type) {
   /* If the environment variable NODE_ENV is equal to 'production'
   and the environment variable PAGE is equal to undefined or false,
   then we return the request fetch(URL). Otherwise, we return the request fetch(URL.json). */
-  return process.env.NODE_ENV === 'production' ? fetch(URL) : fetch(`${URL}.json`);
+  return process.env.NODE_USE_MOCKS === false ? fetch(URL) : fetch(`${URL}.json`);
 }

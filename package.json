@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "NODE_ENV=production vite build",
-    "page": "vite build",
+    "dev": "NODE_USE_MOCKS=true vite",
+    "build": "NODE_USE_MOCKS=false vite build",
+    "page": "NODE_USE_MOCKS=true vite build",
     "preview": "vite preview"
   },
   "dependencies": {
