@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import PropTypes from 'prop-types';
 import {
@@ -7,22 +7,33 @@ import {
 
 export default function RadialGoal(props) {
   const { sportData } = props;
+  const [goal, setGoal] = React.useState(0);
+  useEffect(() => {
+    if (sportData.length > 0) {
+      setGoal(sportData[0].value);
+    }
+  }, [sportData]);
 
   if (!sportData) {
     return <div>Loading...</div>;
   }
 
   const COLORS = ['red', 'white'];
-  console.log(sportData)
+  console.log(sportData);
+
 
   return (
     <div className="radialGoal">
+      <h2>Score</h2>
+      <div className="radialGoal-text">
+        <h3>{goal}%</h3>
+        <h4>de votre objectif</h4>
+      </div>
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie
             data={sportData}
-            cx={200}
-            cy={200}
+            margin={{ top: 10, right: 10, bottom: 10, left: 10 }}
             innerRadius={60}
             outerRadius={80}
             paddingAngle={5}

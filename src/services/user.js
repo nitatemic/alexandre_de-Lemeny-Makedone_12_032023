@@ -23,7 +23,13 @@ export async function getUserGoalCompletion(userID) {
   const response = await requests(userID, 'user');
   const data = await response.json();
   const score = data.data;
-  const result = score.todayScore;
+  let result = null;
+  /* Si score.todayScore existe on le stocke dans result sinon on stocke score.score */
+  if (score.todayScore) {
+    result = score.todayScore;
+  } else {
+    result = score.score;
+  }
   const goalValue = result * 100;
   const RemainingValue = 100 - goalValue;
 

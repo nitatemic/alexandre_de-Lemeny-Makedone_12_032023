@@ -25,8 +25,7 @@ export default function AverageSession(props) {
           <ResponsiveContainer width="100%" height="95%">
             <LineChart
               data={sportData}
-              width="33%"
-              height="100%"
+              margin={{ top: 10, right: 10, bottom: 10, left: 10 }}
             >
               <XAxis
                 dataKey="Jour"

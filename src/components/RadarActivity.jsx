@@ -18,11 +18,7 @@ export default function RadarActivity(props) {
     <div className="radarActivity">
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart
-          cx={140}
-          cy={140}
-          outerRadius={100}
-          width={280}
-          height={280}
+          margin={{ top: 30, right: 30, bottom: 30, left: 30 }}
           data={sportData}
         >
           <PolarGrid radialLines={false} />

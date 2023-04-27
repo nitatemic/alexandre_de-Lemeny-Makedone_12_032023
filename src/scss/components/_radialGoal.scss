@@ -4,6 +4,18 @@
   padding-bottom: 33%; /* même valeur que la largeur en pourcentage */
   position: relative;
 
+  &-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    z-index: 1;
+  }
+
   & > * {
     position: absolute;
     top: 0;

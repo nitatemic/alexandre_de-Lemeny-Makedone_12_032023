@@ -32,14 +32,9 @@
     }
 
   &-copyright {
-    flex-basis: 30%;
-    max-height: 30%;
     color: white;
-    font-family: Roboto, sans-serif;
-    font-size: .8rem;
-    text-wrap: none;
-    transform: rotate(-90deg);
-    transform-origin: left top 0;
+    transform: rotate(180deg);
+    writing-mode: vertical-lr;
   }
 
 }
