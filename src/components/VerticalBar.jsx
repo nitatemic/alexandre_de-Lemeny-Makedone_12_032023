@@ -11,29 +11,29 @@ import WeightIcon from '../assets/img/icons/WeightIcon.svg';
 export default function VerticalBar() {
   return (
     <div className="verticalBar">
-      <div className="verticalBar-items">
-        <div className="verticalBar-item">
+      <ul className="verticalBar-items">
+        <li className="verticalBar-item">
           <a className="verticalBar-item-link" href="/profil">
             <img src={YogaIcon} alt="Yoga Icon" />
           </a>
-        </div>
-        <div className="verticalBar-item">
+        </li>
+        <li className="verticalBar-item">
           <a className="verticalBar-item-link" href="/settings">
             <img src={SwimmingIcon} alt="Swimming Icon" />
           </a>
-        </div>
-        <div className="verticalBar-item">
+        </li>
+        <li className="verticalBar-item">
           <a className="verticalBar-item-link" href="/community">
             <img src={BikeIcon} alt="Bike Icon" />
           </a>
-        </div>
-        <div className="verticalBar-item">
+        </li>
+        <li className="verticalBar-item">
           <a className="verticalBar-item-link" href="/community">
             <img src={WeightIcon} alt="Weight Icon" />
           </a>
-        </div>
-      </div>
-      <small className="verticalBar-copyright">Copyright, SportSee 2020</small>
+        </li>
+      </ul>
+      <h6 className="verticalBar-copyright">Copyright, SportSee 2020</h6>
     </div>
   );
 }

@@ -1,11 +1,11 @@
 .verticalBar {
   background-color: black;
-  width: 7rem;
-  height: calc(100vh - 5rem);
-  display: flex;
+  padding: 1.5rem;
+  height: 100vh;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  position: sticky;
+  box-sizing: border-box;
+  width: 7rem;
 
   &-items {
     display: flex;

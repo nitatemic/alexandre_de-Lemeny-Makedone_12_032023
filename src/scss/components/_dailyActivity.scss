@@ -8,6 +8,16 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.0212249);
   margin: 0 0 3rem 0;
 
+  &-tooltip {
+    background : red;
+
+    padding : .5rem;
+
+    &-label {
+      color : white;
+    }
+  }
+
   &-container {
 
     position: absolute;
@@ -26,7 +36,7 @@
     line-height: 24px;
     letter-spacing: 0;
     text-align: left;
-    height: 20%;
+    max-height: 20%;
   }
 
   &-graph {

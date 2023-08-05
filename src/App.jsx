@@ -10,10 +10,12 @@ function App() {
       <header className="App-header">
         <Navbar />
       </header>
-      <main>
+      <div className="App-content">
         <VerticalBar />
-        <Dashboard />
-      </main>
+        <main>
+          <Dashboard />
+        </main>
+      </div>
     </div>
   );
 }
