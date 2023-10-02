@@ -26,16 +26,16 @@ export default function RadialGoal(props) {
     <div className="radialGoal">
       <h2>Score</h2>
       <div className="radialGoal-text">
-        <h3>{goal}%</h3>
-        <h4>de votre objectif</h4>
+        <h3 className="radialGoal-text-item"><span className="radialGoal-text-item-percent">{goal}%</span> <span className="radialGoal-text-item-text"> de votre objectif</span>
+        </h3>
       </div>
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie
             data={sportData}
             margin={{ top: 10, right: 10, bottom: 10, left: 10 }}
-            innerRadius={60}
-            outerRadius={80}
+            innerRadius={80}
+            outerRadius={100}
             paddingAngle={5}
             dataKey="value"
           >

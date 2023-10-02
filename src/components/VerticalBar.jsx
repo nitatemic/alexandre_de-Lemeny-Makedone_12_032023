@@ -34,6 +34,7 @@ export default function VerticalBar() {
         </li>
       </ul>
       <h6 className="verticalBar-copyright">Copyright, SportSee 2020</h6>
+
     </div>
   );
 }

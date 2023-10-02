@@ -2,39 +2,42 @@
   background-color: black;
   padding: 1.5rem;
   height: 100vh;
-  flex-direction: column;
+  overflow: hidden;
   position: sticky;
   box-sizing: border-box;
-  width: 7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 
   &-items {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    height: fit-content;
     width: 100%;
-    margin : 0;
-    padding : 0;
+    margin: 0;
+    padding: 0;
   }
 
-    &-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 4rem;
-      width: 4rem;
-      margin : .6rem 0 .6rem 0;
-      padding : 0;
-      background: white;
-      border-radius: 6px;
-    }
+  &-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    width: 4rem;
+    margin: .6rem 0 .6rem 0;
+    padding: 0;
+    background: white;
+    border-radius: 6px;
+  }
 
   &-copyright {
     color: white;
     transform: rotate(180deg);
     writing-mode: vertical-lr;
+    background-color: black;
   }
-
 }
