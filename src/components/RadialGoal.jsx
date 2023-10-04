@@ -21,7 +21,6 @@ export default function RadialGoal(props) {
   const COLORS = ['red', 'white'];
   console.log(sportData);
 
-
   return (
     <div className="radialGoal">
       <h2>Score</h2>

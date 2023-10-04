@@ -7,6 +7,16 @@
     border-radius: 5px;
     display: block;
 
+  &-tooltip {
+    background: white;
+
+    padding: .3rem .5rem .3rem .5rem;
+
+    &-label {
+      color: black;
+    }
+  }
+
   &-container {
       position: absolute;
       top: 0;

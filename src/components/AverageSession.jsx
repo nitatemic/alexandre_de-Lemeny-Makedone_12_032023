@@ -13,6 +13,22 @@ import PropTypes from 'prop-types';
 export default function AverageSession(props) {
   const { sportData } = props;
 
+  const TooltipActivity = ({
+    active,
+    payload
+  }) => {
+    if (active && payload) {
+      return (
+        <div className='averageSession-tooltip'>
+          <p className='averageSession-tooltip-label'>
+            {`${payload[0].value} min`}
+          </p>
+        </div>
+      );
+    }
+    return null;
+  };
+
   if (!sportData) {
     return <div>Loading...</div>;
   }
@@ -34,7 +50,7 @@ export default function AverageSession(props) {
                 tick={{ fill: 'white', className: 'weekLabel' }}
               />
               <YAxis hide />
-              <Tooltip />
+              <Tooltip content={<TooltipActivity />} />
               <Line type="monotone" dataKey="Duree" dot={false} stroke="white" />
             </LineChart>
           </ResponsiveContainer>
