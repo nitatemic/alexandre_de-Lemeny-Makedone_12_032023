@@ -37,6 +37,8 @@ export default function RadialGoal(props) {
             outerRadius={100}
             paddingAngle={5}
             dataKey="value"
+            startAngle={90}
+            endAngle={-270}
           >
             {sportData.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
