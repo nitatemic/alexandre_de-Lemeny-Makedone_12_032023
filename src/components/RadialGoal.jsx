@@ -19,11 +19,10 @@ export default function RadialGoal(props) {
   }
 
   const COLORS = ['red', 'white'];
-  console.log(sportData);
 
   return (
     <div className="radialGoal">
-      <h2>Score</h2>
+      <h2 className="radialGoal-title">Score</h2>
       <div className="radialGoal-text">
         <h3 className="radialGoal-text-item"><span className="radialGoal-text-item-percent">{goal}%</span> <span className="radialGoal-text-item-text"> de votre objectif</span>
         </h3>

@@ -20,7 +20,7 @@ export default function Dashboard() {
   const [AverageData, setAverageData] = useState([]);
   const [PerformanceData, setPerformanceData] = useState([]);
   const [GoalData, setGoalData] = useState([]);
-  const userID = 12;
+  const userID = 18;
 
   useEffect(() => {
     async function fetchData() {
