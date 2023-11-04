@@ -22,7 +22,7 @@ export default function RadialGoal(props) {
 
   return (
     <div className="radialGoal">
-      <h2 className="radialGoal-title">Score</h2>
+         <h2 className="radialGoal-title">Score</h2>
       <div className="radialGoal-text">
         <h3 className="radialGoal-text-item"><span className="radialGoal-text-item-percent">{goal}%</span> <span className="radialGoal-text-item-text"> de votre objectif</span>
         </h3>
@@ -31,16 +31,16 @@ export default function RadialGoal(props) {
         <PieChart>
           <Pie
             data={sportData}
-            margin={{ top: 10, right: 10, bottom: 10, left: 10 }}
-            innerRadius={80}
-            outerRadius={100}
+            innerRadius={'70%'}
+            outerRadius={'80%'}
             paddingAngle={5}
             dataKey="value"
             startAngle={90}
             endAngle={-270}
+            cornerRadius={10}
           >
             {sportData.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}/>
             ))}
           </Pie>
         </PieChart>
