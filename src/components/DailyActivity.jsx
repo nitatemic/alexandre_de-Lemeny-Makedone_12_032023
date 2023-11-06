@@ -48,12 +48,6 @@ export default function DailyActivity(props) {
             <BarChart
               data={sportData}
               className="dailyActivity-chart"
-              margin={{
-                top: 0,
-                right: 0,
-                left: 0,
-                bottom: 0,
-              }}
             >
               <CartesianGrid strokeDasharray="3" vertical={false} />
               <XAxis dataKey="Jour" tickLine={false} tickMargin={10} />

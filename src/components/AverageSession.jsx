@@ -38,10 +38,10 @@ export default function AverageSession(props) {
       <div className="averageSession-container">
         <h2 className="averageSession-title">Durée moyenne des sessions</h2>
         <div className="averageSession-graph">
-          <ResponsiveContainer width="100%" height="95%">
+          <ResponsiveContainer width="100%" height="100%">
             <LineChart
               data={sportData}
-              margin={{ top: 10, right: 10, bottom: 10, left: 10 }}
+              margin={{ top: 10, right: 10, bottom: 30, left: 10 }}
             >
               <XAxis
                 dataKey="Jour"

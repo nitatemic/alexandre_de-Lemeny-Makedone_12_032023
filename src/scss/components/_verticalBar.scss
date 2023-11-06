@@ -1,7 +1,7 @@
 .verticalBar {
   background-color: black;
   padding: 1.5rem;
-  height: 100vh;
+  height: calc(100vh - 4rem);
   overflow: hidden;
   position: sticky;
   box-sizing: border-box;
