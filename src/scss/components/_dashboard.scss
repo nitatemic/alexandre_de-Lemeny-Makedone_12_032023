@@ -1,25 +1,26 @@
 .dashboard {
   margin: 0 0 0 2rem;
 
+
   &-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: flex-start;
-    width: calc(100vw - 15rem);
+    width: 85vw;
     margin : 0;
 
     &-left {
       display: flex;
       flex-direction: column;
-      width: 70%;
+      width: 75%;
       justify-content: space-between;
     }
 
     &-right {
       display: flex;
       flex-direction: column;
-      width: 30%;
+      width: 25%;
 
     }
   }
