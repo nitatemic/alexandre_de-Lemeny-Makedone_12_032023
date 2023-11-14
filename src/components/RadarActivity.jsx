@@ -18,11 +18,13 @@ export default function RadarActivity(props) {
     <div className="radarActivity">
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart
-          margin={{ top: 50, right: 50, bottom: 50, left: 50 }}
+          cx="50%"
+          cy="50%"
+          outerRadius="60%"
           data={sportData}
         >
           <PolarGrid radialLines={false} />
-          <PolarAngleAxis dataKey="Kind" tick={{ fill: 'white'}} />
+          <PolarAngleAxis dataKey="Kind" fontSize={10} tick={{ fill: 'white'} } />
           <Radar
             name="Mike"
             dataKey="A"
