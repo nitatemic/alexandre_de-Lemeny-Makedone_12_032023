@@ -24,7 +24,7 @@ export default function RadarActivity(props) {
           data={sportData}
         >
           <PolarGrid radialLines={false} />
-          <PolarAngleAxis dataKey="Kind" fontSize={10} tick={{ fill: 'white'} } />
+          <PolarAngleAxis dataKey="Kind" fontSize={`calc(4px + .6vw)`} tick={{ fill: 'white'} } />
           <Radar
             name="Mike"
             dataKey="A"
