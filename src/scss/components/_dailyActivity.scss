@@ -6,6 +6,7 @@
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.0212249);
   margin: 0 0 1.5rem 0;
+  height: 100%;
 
   &-tooltip {
     background : red;
@@ -23,7 +24,8 @@
     left: 0;
     width: 90%;
     height: 100%;
-    padding : 1rem 1rem 2rem 1rem;
+    max-height: 40vh;
+    //padding : 1rem 1rem 2rem 1rem;
   }
 
   &-title {
