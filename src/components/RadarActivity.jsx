@@ -11,6 +11,11 @@ import PropTypes from 'prop-types';
 export default function RadarActivity(props) {
   const { sportData } = props;
 
+  sportData.forEach((element) => {
+    const kind = element.Kind;
+    element.Kind = kind[0].toUpperCase() + kind.slice(1);
+  });
+
   if (!sportData) {
     return <div>Loading...</div>;
   }
