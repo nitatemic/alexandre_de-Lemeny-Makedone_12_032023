@@ -35,7 +35,7 @@ export default function AverageSession(props) {
 
 
   const CustomCursor = ({ points }) => {
-    return <Rectangle fill='#000000' opacity={0.2} x={points[0].x} width={1000} height={1000} />;
+    return <Rectangle fill="#000000" opacity={0.2} x={points[0].x} width={1000} height={1000} />;
   };
 
   return (
