@@ -48,6 +48,11 @@ export default function AverageSession(props) {
               data={sportData}
               margin={{ top: 60, right: 10, bottom: 10, left: 10 }}
             >
+              {/*
+              1. Define a <linearGradient> in the <defs> section with desired opacity stops.
+              2. Apply this gradient to the line by setting the stroke attribute to "url(#gradientId)".
+              3. Adjust stopOpacity values to control the opacity gradient.
+              */}
               <defs>
                 <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="0">
                   <stop offset="0%" stopColor="white" stopOpacity={0.4032} />
