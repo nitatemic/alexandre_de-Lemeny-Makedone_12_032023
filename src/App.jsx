@@ -1,22 +1,20 @@
 import React from 'react';
 import './App.css';
-import Navbar from './components/Navbar';
-import VerticalBar from './components/VerticalBar';
-import Dashboard from './components/Dashboard';
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import MainPage from './components/MainPage';
+import Error from './components/Error';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Navbar />
-      </header>
-      <div className="App-content">
-        <VerticalBar />
-        <main>
-          <Dashboard />
-        </main>
-      </div>
-    </div>
+    <>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={ <MainPage /> } />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </Router>
+
+    </>
+
   );
 }
 

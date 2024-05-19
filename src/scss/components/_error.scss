@@ -1,0 +1,40 @@
+.error {
+  margin: 0;
+
+  &-title {
+    font-family: Montserrat, sans-serif;
+    font-size: calc(96px + 8vw);
+    font-weight: 700;
+    line-height: 411px;
+    letter-spacing: 0;
+    text-align: center;
+    color: red;
+    margin: 3rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  &-subtitle {
+    font-family: Montserrat, sans-serif;
+    font-size: calc(18px + 1.5vw);
+    font-weight: 500;
+    line-height: 51px;
+    letter-spacing: 0;
+    text-align: center;
+    color: red;
+    margin-bottom: 3rem;
+    width: 100%;
+  }
+
+  &-link {
+    font-family: Montserrat, sans-serif;
+    font-size: calc(14px + .3vw);
+    font-weight: 500;
+    line-height: 26px;
+    letter-spacing: 0;
+    text-align: center;
+    color: blue;
+    display: flex;
+    justify-content: center;
+  }
+}
