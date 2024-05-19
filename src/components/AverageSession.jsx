@@ -48,6 +48,12 @@ export default function AverageSession(props) {
               data={sportData}
               margin={{ top: 60, right: 10, bottom: 10, left: 10 }}
             >
+              <defs>
+                <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="white" stopOpacity={0.4032} />
+                  <stop offset="100%" stopColor="white" stopOpacity={1} />
+                </linearGradient>
+              </defs>
               <XAxis
                 dataKey="Jour"
                 axisLine={false}
@@ -56,7 +62,7 @@ export default function AverageSession(props) {
               />
               <YAxis hide />
               <Tooltip content={<TooltipActivity />} cursor={<CustomCursor />} />
-              <Line type="monotone" dataKey="Duree" dot={false} stroke="white" />
+              <Line type="monotone" dataKey="Duree" dot={false} stroke="url(#lineGradient)" strokeWidth={3} />
             </LineChart>
           </ResponsiveContainer>
         </div>
