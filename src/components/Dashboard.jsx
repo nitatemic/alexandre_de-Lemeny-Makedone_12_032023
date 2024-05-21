@@ -8,6 +8,7 @@ import IndividualData from './IndividualData';
 import getDailyActivity from '../services/activity';
 import getAverageSessions from '../services/averageSessions';
 import getPerformance from '../services/performance';
+import Modal from '@nitatemic/reactmodal';
 
 /**
  * It is used to display the dashboard page.
@@ -22,29 +23,53 @@ export default function Dashboard() {
   const [GoalData, setGoalData] = useState([]);
   const userID = 18;
 
+  /* Modal */
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+  /* End of Modal */
+
+
   useEffect(() => {
     async function fetchData() {
-      /* Get data for the dashboard */
-      const result = await getUser(userID);
-      setData(result);
-      /* Get data for DailyActivity component */
-      const actiData = await getDailyActivity(userID);
-      setActivityData(actiData);
-      /* Get data for AverageSession component */
-      const avgData = await getAverageSessions(userID);
-      setAverageData(avgData);
-      /* Get data for RadarActivity component */
-      const perfData = await getPerformance(userID);
-      setPerformanceData(perfData);
-      /* Get data for RadialGoal component */
-      const goalData = await getUserGoalCompletion(userID);
-      setGoalData(goalData);
+      try {
+        /* Get data for the dashboard */
+        const result = await getUser(userID);
+        setData(result);
+        /* Get data for DailyActivity component */
+        const actiData = await getDailyActivity(userID);
+        setActivityData(actiData);
+        /* Get data for AverageSession component */
+        const avgData = await getAverageSessions(userID);
+        setAverageData(avgData);
+        /* Get data for RadarActivity component */
+        const perfData = await getPerformance(userID);
+        setPerformanceData(perfData);
+        /* Get data for RadialGoal component */
+        const goalData = await getUserGoalCompletion(userID);
+        setGoalData(goalData);
+      } catch (error) {
+        /* Display a modal */
+        openModal();
+      }
     }
     fetchData();
   }, []);
 
   return (
     <div className="dashboard">
+      {modalOpen && (
+        <Modal isOpen={modalOpen} onClose={closeModal}>
+          <h2 className="title-modal">"Houston, we have a problem"</h2>
+          <p className="content-modal">Nous n'arrivons pas à contacter le serveur</p>
+        </Modal>
+      )}
       <h1 className="dashboard-greeting">
         Bonjour
         {' '}

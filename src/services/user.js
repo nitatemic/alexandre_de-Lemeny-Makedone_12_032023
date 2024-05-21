@@ -20,27 +20,32 @@ export default async function getUser(userID) {
  * with the specified `id`.
  */
 export async function getUserGoalCompletion(userID) {
-  const response = await requests(userID, 'user');
-  const data = await response.json();
-  const score = data.data;
-  let result = null;
-  /* Si score.todayScore existe on le stocke dans result sinon on stocke score.score */
-  if (score.todayScore) {
-    result = score.todayScore;
-  } else {
-    result = score.score;
-  }
-  const goalValue = result * 100;
-  const RemainingValue = 100 - goalValue;
 
-  return [
-    {
-      name: 'Goal',
-      value: goalValue,
-    },
-    {
-      name: 'Remaining',
-      value: RemainingValue,
-    },
-  ];
+  try {
+    const response = await requests(userID, 'user');
+    const data = await response.json();
+    const score = data.data;
+    let result = null;
+    /* If score.todayScore exists, we store it in result, otherwise we store score.score */
+    if (score.todayScore) {
+      result = score.todayScore;
+    } else {
+      result = score.score;
+    }
+    const goalValue = result * 100;
+    const RemainingValue = 100 - goalValue;
+
+    return [
+      {
+        name: 'Goal',
+        value: goalValue,
+      },
+      {
+        name: 'Remaining',
+        value: RemainingValue,
+      },
+    ];
+  } catch (error) {
+    throw new Error('There was a problem with the fetch operation');
+  }
 }

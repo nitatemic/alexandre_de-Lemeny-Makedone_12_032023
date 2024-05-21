@@ -1,6 +1,6 @@
 import { API } from '../services/variables';
 
-export default function requests(userID, type) {
+export default async function requests(userID, type) {
   let URL;
   try {
     switch (type) {
@@ -20,11 +20,17 @@ export default function requests(userID, type) {
         throw new Error('Invalid request type');
     }
   } catch (error) {
-    console.error(error);
   }
 
   /* If the environment variable NODE_ENV is equal to 'production'
   and the environment variable PAGE is equal to undefined or false,
   then we return the request fetch(URL). Otherwise, we return the request fetch(URL.json). */
-  return import.meta.env.VITE_USE_MOCKS === 'false' ? fetch(URL) : fetch(`${URL}.json`);
+  try {
+    const response = import.meta.env.VITE_USE_MOCKS === 'false' ? await fetch(URL) : await fetch(`${URL}.json`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response;
+  } catch (error) {
+  }
 }

@@ -27,15 +27,19 @@ export default async function getAverageSessions(userID) {
     }
   }
 
-  const response = await requests(userID, 'averageSessions');
-  const data = await response.json();
-  const result = data.data;
-  const table = [];
-  for (let i = 0; i < result.sessions.length; i += 1) {
-    table.push({
-      Jour: getDay(result.sessions[i].day),
-      Duree: (result.sessions[i].sessionLength),
-    });
+  try {
+    const response = await requests(userID, 'averageSessions');
+    const data = await response.json();
+    const result = data.data;
+    const table = [];
+    for (let i = 0; i < result.sessions.length; i += 1) {
+      table.push({
+        Jour: getDay(result.sessions[i].day),
+        Duree: (result.sessions[i].sessionLength),
+      });
+    }
+    return table;
+  } catch (error) {
+    throw new Error('There was a problem with the fetch operation');
   }
-  return table;
 }

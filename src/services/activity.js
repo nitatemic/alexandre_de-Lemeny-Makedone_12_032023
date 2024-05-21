@@ -6,16 +6,20 @@ import requests from '../requests/requests';
  * @returns An array of objects.
  */
 export default async function getDailyActivity(userID) {
-  const response = await requests(userID, 'activity');
-  const data = await response.json();
-  const result = data.data;
-  const table = [];
-  for (let i = 0; i < result.sessions.length; i += 1) {
-    table.push({
-      Jour: new Date(result.sessions[i].day).getDate(),
-      Poids: result.sessions[i].kilogram,
-      Calories: (result.sessions[i].calories),
-    });
+  try {
+    const response = await requests(userID, 'activity');
+    const data = await response.json();
+    const result = data.data;
+    const table = [];
+    for (let i = 0; i < result.sessions.length; i += 1) {
+      table.push({
+        Jour: new Date(result.sessions[i].day).getDate(),
+        Poids: result.sessions[i].kilogram,
+        Calories: (result.sessions[i].calories),
+      });
+    }
+    return table;
+  } catch (error) {
+    throw new Error('There was a problem with the fetch operation');
   }
-  return table;
 }

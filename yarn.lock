@@ -409,10 +409,10 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@nitatemic/reactmodal@^1.0.10":
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/@nitatemic/reactmodal/-/reactmodal-1.0.10.tgz#ef172e7a2035fdeaa29d047ec8eb8428ff7d549c"
-  integrity sha512-guppp5jBuJrMyEWD9s3ORI0NjFziFpm1+S2DV9ssXkQPLQhmCbOaNENWmaGhNJK8jQwp8UuqHKsgCn2MyGZPgw==
+"@nitatemic/reactmodal@^1.0.11":
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/@nitatemic/reactmodal/-/reactmodal-1.0.11.tgz#31072ff18fde27e39eb009ecb080fd88c5526212"
+  integrity sha512-v3ZbLRJ9uMFIYNf6L1abgv0s1yBkOjMWTnbodndc1iWwJ+ejWWUQ8YLP2KHFX0LOt0owzyYWDA3C6IP500z2Uw==
   dependencies:
     react "^18.2.0"
     react-dom "^18.2.0"
