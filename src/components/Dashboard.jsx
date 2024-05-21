@@ -66,7 +66,7 @@ export default function Dashboard() {
     <div className="dashboard">
       {modalOpen && (
         <Modal isOpen={modalOpen} onClose={closeModal}>
-          <h2 className="title-modal">"Houston, we have a problem"</h2>
+          <h2 className="title-modal">"Uh, Houston, we've had a problem"</h2>
           <p className="content-modal">Nous n'arrivons pas à contacter le serveur</p>
         </Modal>
       )}
