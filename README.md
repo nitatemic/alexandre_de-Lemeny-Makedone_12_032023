@@ -2,6 +2,8 @@
 
 This is the frontend of SportSee. It is a web application that allows users to view their data.
 
+[![Static Badge](https://img.shields.io/badge/docker-_latest-blue)](https://hub.docker.com/r/nitatemic/sportsee)
+
 ## Installation
 
 ### Prerequisites
@@ -12,13 +14,12 @@ This is the frontend of SportSee. It is a web application that allows users to v
 ### Setup
 
 1. Clone the repository
-2. Run `yarn install` to install the dependencies
-3. Run `yarn dev` to start the development server
-4. Open `localhost:8080` in your browser
+2. Run `yarn` to install the dependencies
+3. Run `yarn run dev` to start the development server
 
 ## Deployment
 
-To deploy the application, run `yarn build`. This will create the files that need to be served by a web server.
+To deploy the application, run `yarn run build`. This will create the files that need to be served by a web server.
 
 
 
